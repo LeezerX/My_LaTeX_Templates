@@ -1,0 +1,206 @@
+%%设置文档格式,将onecolumn换成twocolumn即为双栏排版
+\documentclass[11pt,onecolumn,a4paper]{ctexart}
+
+% 打数学公式并且让他更好看
+\usepackage{amsmath}
+
+%%设置图片
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{subfigure}
+
+%%设置纸张格式和页边距
+\usepackage{geometry}
+\geometry{a4paper,left=2.54cm,right=2.54cm,top=3.09cm,bottom=3.09cm}
+
+%%设置行间距
+\linespread{1.2}
+
+%%为图片和表格自动编号，name=后的东西即为标头
+\usepackage{caption}
+\captionsetup[figure]{name=}
+\captionsetup[table]{name=}
+
+%%图片目录
+\graphicspath{{./figures/}}
+
+%%在文档中改变字体的颜色
+\usepackage{xcolor}
+\newcommand{\red}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
+\newcommand{\blue}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
+\newcommand{\green}[1]{\textcolor[rgb]{0.00,1.00,0.00}{#1}}
+\newcommand{\darkblue}[1]
+{\textcolor[rgb]{0.00,0.00,0.50}{#1}}
+\newcommand{\darkgreen}[1]
+{\textcolor[rgb]{0.00,0.37,0.00}{#1}}
+\newcommand{\darkred}[1]{\textcolor[rgb]{0.60,0.00,0.00}{#1}}
+\newcommand{\brown}[1]{\textcolor[rgb]{0.50,0.30,0.00}{#1}}
+\newcommand{\purple}[1]{\textcolor[rgb]{0.50,0.00,0.50}{#1}}
+
+%%引用文献
+\usepackage{bibentry}
+\usepackage{natbib}
+
+%%配置文章基本信息
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+	\maketitle 
+
+	%%摘要
+	\begin{abstract}
+	\end{abstract}
+	
+	\section{文本中文字效果}
+	\text{文本效果}
+	\textbf{文本效果}
+	{\em 文本效果}
+	\underline{文本效果}
+	\red{文本效果}
+	\colorbox{yellow}{文本效果}
+	\colorbox{yellow}{\red{文本效果么}}
+	
+	\section{插入图片}
+	
+	\subsection{插入单张图片}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{file name}
+		\caption{picture name}
+		\label{my label}%%后文用\ref{my label}引用
+	\end{figure}
+
+	\subsection{插入过宽的单张图片}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth][center]{file name}
+		\caption{picture name}
+		\label{my label}%%后文用\ref{my label}引用
+	\end{figure}
+
+	\subsection{插入两张图片并且并排}
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{file name}
+			\caption{picture name}
+		\end{minipage}
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{file name}
+			\caption{picture name}
+		\end{minipage}
+	\end{figure}
+	
+	\subsection{插入三张图片并且并排}
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.32\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{file name}
+			\caption{picture name}
+		\end{minipage}
+		\begin{minipage}{0.32\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{file name}
+			\caption{picture name}
+		\end{minipage}
+		\begin{minipage}{0.32\textwidth}
+			\centering
+			\includegraphics[width=0.8\textwidth]{file name}
+			\caption{picture name}
+		\end{minipage}
+	\end{figure}
+
+    \subsection{插入包含子图的图片}
+    \begin{figure}[H]
+    	\centering
+    	\subfigure[caption 1]{
+    		\includegraphics
+    		[width=0.2\textwidth]
+    		{file name}}
+    	\subfigure[caption 2]{
+    		\includegraphics
+    		[width=0.2\textwidth]
+    		{file name}}
+    	\caption{}
+    \end{figure}
+
+
+    \section{表格设置}
+	%%注意两个环境之间加入
+	\caption{name}
+	%%表格编辑网站：https://www.tablesgenerator.com/latex_tables
+	
+	\section{公式设置}
+	\subsection{普通公式}
+	\begin{equation}
+		\tag{}%%可以自己设置编号，也可以按系统自己编号的来\notag表示没有编号
+		\label{my label}%%也可以添加引用，后文用\eqref{my label}即可，可以方便的引用公式
+	\end{equation}
+    \subsection{多个公式且控制位置}
+	\begin{align}
+		& \notag \\ %%双反斜杠控制变行，\notag控制编号
+		&
+	\end{align}
+	\subsection{多个公式无需控制位置}
+	\begin{gather}
+		a=b+c\\
+		c=b+d\\
+		d=r+a\\
+		l=m+n
+	\end{gather}
+	\subsection{同一个公式换行并将公式符号居中}
+	\begin{equation}
+		\begin{aligned}
+			a&=b+c\\
+			c&=c+d
+		\end{aligned}
+	\end{equation}
+
+
+     \section{参考文献设置}
+     \subsection{手动插入}
+     \begin{thebibliography}{99}
+     	\bibitem{ref1}
+     	Mark Srednicki.Quantum Field Theory.
+     	CAMBRIDGE UNIVERSITY PRESS, 1st edition, 2007.
+     	\bibitem{ref2}
+     	Zhe Chang and Sai Wang.Lorentz invariance violation
+     	and electrodynamic field in an iintrinsically
+     	anisotropic spacetime.
+     	The European Physical Journal C,
+     	arXiv:1204.2478, 72, Sept.2012
+     \end{thebibliography}
+ 
+     \subsection{自动插入}
+
+     %%新建一个.bib文件，在里面输入如下：
+     @ARTICLE{LLI,
+     	author = {},
+     	title = {},
+     	journal = {},
+     	year = {},
+     	volume = {},
+     	month = {},
+     	publisher = {}
+     }
+    @book{SK,
+    	author = {},
+    	title = {},
+    	publisher = {},
+    	year = {},
+    	edition = {},
+    }
+    %%在需要插入参考文献的区域内插入：
+    \bibliographystyle{unsrt}
+    \bibliography{sample}
+    %%在文章中的引用：
+    \cite{SK}
+    \nocite{LLI}
+    %%注意，参考了但是没有地方引用一定要选择nocite，每天文献要生成条目必须事先声明
+\end{document}
