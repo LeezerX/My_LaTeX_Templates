@@ -49,162 +49,162 @@
 
 
 \begin{document}
-	\maketitle 
+\maketitle
 
-	%%摘要
-	\begin{abstract}
-	\end{abstract}
+%%摘要
+\begin{abstract}
+\end{abstract}
 
-	%%生成目录
-	\tableofcontents
-	
-	\section{文本中文字效果}
-	\text{文本效果}
-	\textbf{文本效果}
-	{\em 文本效果}
-	\underline{文本效果}
-	\red{文本效果}
-	\colorbox{yellow}{文本效果}
-	\colorbox{yellow}{\red{文本效果么}}
-	
-	\section{插入图片}
-	
-	\subsection{插入单张图片}
-	\begin{figure}[H]
+%%生成目录
+\tableofcontents
+
+\section{文本中文字效果}
+\text{文本效果}
+\textbf{文本效果}
+{\em 文本效果}
+\underline{文本效果}
+\red{文本效果}
+\colorbox{yellow}{文本效果}
+\colorbox{yellow}{\red{文本效果么}}
+
+\section{插入图片}
+
+\subsection{插入单张图片}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{file name}
+	\caption{picture name}
+	\label{my label}%%后文用\ref{my label}引用
+\end{figure}
+
+\subsection{插入过宽的单张图片}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth][center]{file name}
+	\caption{picture name}
+	\label{my label}%%后文用\ref{my label}引用
+\end{figure}
+
+\subsection{插入两张图片并且并排}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.48\textwidth}
 		\centering
-		\includegraphics[width=0.6\textwidth]{file name}
+		\includegraphics[width=0.8\textwidth]{file name}
 		\caption{picture name}
-		\label{my label}%%后文用\ref{my label}引用
-	\end{figure}
-
-	\subsection{插入过宽的单张图片}
-	\begin{figure}[H]
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
 		\centering
-		\includegraphics[width=0.6\textwidth][center]{file name}
+		\includegraphics[width=0.8\textwidth]{file name}
 		\caption{picture name}
-		\label{my label}%%后文用\ref{my label}引用
-	\end{figure}
+	\end{minipage}
+\end{figure}
 
-	\subsection{插入两张图片并且并排}
-	\begin{figure}[H]
+\subsection{插入三张图片并且并排}
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.32\textwidth}
 		\centering
-		\begin{minipage}{0.48\textwidth}
-			\centering
-			\includegraphics[width=0.8\textwidth]{file name}
-			\caption{picture name}
-		\end{minipage}
-		\begin{minipage}{0.48\textwidth}
-			\centering
-			\includegraphics[width=0.8\textwidth]{file name}
-			\caption{picture name}
-		\end{minipage}
-	\end{figure}
-	
-	\subsection{插入三张图片并且并排}
-	\begin{figure}[H]
+		\includegraphics[width=0.8\textwidth]{file name}
+		\caption{picture name}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
 		\centering
-		\begin{minipage}{0.32\textwidth}
-			\centering
-			\includegraphics[width=0.8\textwidth]{file name}
-			\caption{picture name}
-		\end{minipage}
-		\begin{minipage}{0.32\textwidth}
-			\centering
-			\includegraphics[width=0.8\textwidth]{file name}
-			\caption{picture name}
-		\end{minipage}
-		\begin{minipage}{0.32\textwidth}
-			\centering
-			\includegraphics[width=0.8\textwidth]{file name}
-			\caption{picture name}
-		\end{minipage}
-	\end{figure}
+		\includegraphics[width=0.8\textwidth]{file name}
+		\caption{picture name}
+	\end{minipage}
+	\begin{minipage}{0.32\textwidth}
+		\centering
+		\includegraphics[width=0.8\textwidth]{file name}
+		\caption{picture name}
+	\end{minipage}
+\end{figure}
 
-    \subsection{插入包含子图的图片}
-    \begin{figure}[H]
-    	\centering
-    	\subfigure[caption 1]{
-    		\includegraphics
-    		[width=0.2\textwidth]
-    		{file name}}
-    	\subfigure[caption 2]{
-    		\includegraphics
-    		[width=0.2\textwidth]
-    		{file name}}
-    	\caption{}
-    \end{figure}
+\subsection{插入包含子图的图片}
+\begin{figure}[H]
+	\centering
+	\subfigure[caption 1]{
+		\includegraphics
+		[width=0.2\textwidth]
+		{file name}}
+	\subfigure[caption 2]{
+		\includegraphics
+		[width=0.2\textwidth]
+		{file name}}
+	\caption{}
+\end{figure}
 
 
-    \section{表格设置}
-	%%注意两个环境之间加入
-	\caption{name}
-	%%表格编辑网站：https://www.tablesgenerator.com/latex_tables
-	
-	\section{公式设置}
-	\subsection{普通公式}
-	\begin{equation}
-		\tag{}%%可以自己设置编号，也可以按系统自己编号的来\notag表示没有编号
-		\label{my label}%%也可以添加引用，后文用\eqref{my label}即可，可以方便的引用公式
-	\end{equation}
-    \subsection{多个公式且控制位置}
-	\begin{align}
-		& \notag \\ %%双反斜杠控制变行，\notag控制编号
-		&
-	\end{align}
-	\subsection{多个公式无需控制位置}
-	\begin{gather}
-		a=b+c\\
-		c=b+d\\
-		d=r+a\\
-		l=m+n
-	\end{gather}
-	\subsection{同一个公式换行并将公式符号居中}
-	\begin{equation}
-		\begin{aligned}
-			a&=b+c\\
-			c&=c+d
-		\end{aligned}
-	\end{equation}
+\section{表格设置}
+%%注意两个环境之间加入
+\caption{name}
+%%表格编辑网站：https://www.tablesgenerator.com/latex_tables
+
+\section{公式设置}
+\subsection{普通公式}
+\begin{equation}
+	\tag{}%%可以自己设置编号，也可以按系统自己编号的来\notag表示没有编号
+	\label{my label}%%也可以添加引用，后文用\eqref{my label}即可，可以方便的引用公式
+\end{equation}
+\subsection{多个公式且控制位置}
+\begin{align}
+	 & \notag \\ %%双反斜杠控制变行，\notag控制编号
+	 &
+\end{align}
+\subsection{多个公式无需控制位置}
+\begin{gather}
+	a=b+c\\
+	c=b+d\\
+	d=r+a\\
+	l=m+n
+\end{gather}
+\subsection{同一个公式换行并将公式符号居中}
+\begin{equation}
+	\begin{aligned}
+		a & =b+c \\
+		c & =c+d
+	\end{aligned}
+\end{equation}
 
 
-     \section{参考文献设置}
-     \subsection{手动插入}
-     \begin{thebibliography}{99}
-     	\bibitem{ref1}
-     	Mark Srednicki.Quantum Field Theory.
-     	CAMBRIDGE UNIVERSITY PRESS, 1st edition, 2007.
-     	\bibitem{ref2}
-     	Zhe Chang and Sai Wang.Lorentz invariance violation
-     	and electrodynamic field in an iintrinsically
-     	anisotropic spacetime.
-     	The European Physical Journal C,
-     	arXiv:1204.2478, 72, Sept.2012
-     \end{thebibliography}
- 
-     \subsection{自动插入}
+\section{参考文献设置}
+\subsection{手动插入}
+\begin{thebibliography}{99}
+	\bibitem{ref1}
+	Mark Srednicki.Quantum Field Theory.
+	CAMBRIDGE UNIVERSITY PRESS, 1st edition, 2007.
+	\bibitem{ref2}
+	Zhe Chang and Sai Wang.Lorentz invariance violation
+	and electrodynamic field in an iintrinsically
+	anisotropic spacetime.
+	The European Physical Journal C,
+	arXiv:1204.2478, 72, Sept.2012
+\end{thebibliography}
 
-     %%新建一个.bib文件，在里面输入如下：
-     @ARTICLE{LLI,
-     	author = {},
-     	title = {},
-     	journal = {},
-     	year = {},
-     	volume = {},
-     	month = {},
-     	publisher = {}
-     }
-    @book{SK,
-    	author = {},
-    	title = {},
-    	publisher = {},
-    	year = {},
-    	edition = {},
-    }
-    %%在需要插入参考文献的区域内插入：
-    \bibliographystyle{unsrt}
-    \bibliography{sample}
-    %%在文章中的引用：
-    \cite{SK}
-    \nocite{LLI}
-    %%注意，参考了但是没有地方引用一定要选择nocite，每天文献要生成条目必须事先声明
+\subsection{自动插入}
+
+%%新建一个.bib文件，在里面输入如下：
+@ARTICLE{LLI,
+	author = {},
+	title = {},
+	journal = {},
+	year = {},
+	volume = {},
+	month = {},
+	publisher = {}
+}
+@book{SK,
+	author = {},
+	title = {},
+	publisher = {},
+	year = {},
+	edition = {},
+}
+%%在需要插入参考文献的区域内插入：
+\bibliographystyle{unsrt}
+\bibliography{sample}
+%%在文章中的引用：
+\cite{SK}
+\nocite{LLI}
+%%注意，参考了但是没有地方引用一定要选择nocite，每天文献要生成条目必须事先声明
 \end{document}
