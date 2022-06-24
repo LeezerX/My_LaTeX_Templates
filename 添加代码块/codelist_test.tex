@@ -2,6 +2,7 @@
 
 %%代码块包
 \usepackage{listings}
+\usepackage{fontspec}
 
 %%自定义颜色
 \usepackage{xcolor}
@@ -12,7 +13,11 @@
 
 %%自定义代码块样式
 \lstdefinestyle{mystyle}{
-    basicstyle=\ttfamily\small,
+    basicstyle=\fontspec{Consolas}\small,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941}\fontspec{Consolas Bold}, % 关键字
+    commentstyle=\color[rgb]{0.133,0.545,0.133}\fontspec{Consolas Italic}, % 注释
+    numberstyle=\small\fontspec{Consolas}, % 行号
+    stringstyle=\color{blue},
     aboveskip={1.0\baselineskip},
     belowskip={1.0\baselineskip},
     columns=fixed,
@@ -20,19 +25,16 @@
     breaklines=true,
     tabsize=4,
     prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-    frame=lines,
+    frame=single, %single
+    numbersep=14pt, %-12pt
     showtabs=false,
     showspaces=false,
     showstringspaces=false,
-    keywordstyle=\color[rgb]{0.627,0.126,0.941},
-    commentstyle=\color[rgb]{0.133,0.545,0.133},
-    stringstyle=\color[rgb]{1,0,0},
     numbers=left,
-    numberstyle=\small,
     stepnumber=1,
-    numbersep=10pt,
     captionpos=t,
-    escapeinside={\%*}{*)}
+    escapeinside={\%*}{*)},
+    % identifierstyle=\color{blue},
     }
 \lstset{style=mystyle}
 
@@ -44,6 +46,44 @@
 %% 添加目录
 \tableofcontents
 \lstlistoflistings%%列出代码块
+
+
+\begin{lstlisting}[language=Python,caption=python code]
+import numpy as np
+
+tp = (1,2,3,4,5,6,7,8,9,10)
+print(tp[:5])
+print(tp[5:])
+"string"
+
+def incmatrix(genl1,genl2):
+    m = len(genl1)
+    n = len(genl2)
+    M = None #to become the incidence matrix
+    VT = np.zeros((n*m,1), int)  #dummy variable
+    
+    #compute the bitwise xor matrix
+    M1 = bitxormatrix(genl1)
+    M2 = np.triu(bitxormatrix(genl2),1) 
+
+    for i in range(m-1):
+        for j in range(i+1, m):
+            [r,c] = np.where(M2 == M1[i,j])
+            for k in range(len(r)):
+                VT[(i)*n + r[k]] = 1;
+                VT[(i)*n + c[k]] = 1;
+                VT[(j)*n + r[k]] = 1;
+                VT[(j)*n + c[k]] = 1;
+                
+                if M is None:
+                    M = np.copy(VT)
+                else:
+                    M = np.concatenate((M, VT), 1)
+                
+                VT = np.zeros((n*m,1), int)
+    
+    return M
+\end{lstlisting}
 
 \begin{lstlisting}[language=Python,caption=python code]
     import numpy as np
